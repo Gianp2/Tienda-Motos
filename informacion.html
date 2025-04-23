@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más Información - Motos</title>
+    <link rel="stylesheet" href="stylesinfo.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: url('img/fondoinfo.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .info-section {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .agency-info {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .moto-features {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Más Información sobre Motos</h1>
+    
+    <div class="info-section">
+        <h2>Características Principales</h2>
+        <p>Las motos que ofrecemos cuentan con características avanzadas como:</p>
+        <ul class="moto-features">
+            <li>Motor de alta eficiencia.</li>
+            <li>Sistemas de frenos ABS.</li>
+            <li>Diseños aerodinámicos.</li>
+            <li>Opciones de personalización.</li>
+            <br>
+        </ul>
+        <button onclick="mostrarMas()">Mostrar más información</button>
+        <div id="mas-info" style="display: none;">
+            <p>Nuestras motos son ideales tanto para principiantes como para motociclistas experimentados. Ofrecemos una amplia gama de modelos que se adaptan a tus necesidades.</p>
+            <h3>Beneficios de Elegir Nuestras Motos</h3>
+            <ul class="moto-features">
+                <li>Mejor rendimiento de combustible.</li>
+                <li>Menor costo de mantenimiento.</li>
+                <li>Comodidad y seguridad en cada viaje.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="info-section agency-info">
+        <h2>Acerca de Nuestra Agencia</h2>
+        <p>En <strong>Motos GP</strong>, nos apasiona ofrecerte las mejores motos del mercado. Con años de experiencia en la industria, nuestro equipo está comprometido a brindarte un servicio excepcional y asesorarte en la elección de la moto perfecta para ti.</p>
+        <p>Además de la venta de motos, ofrecemos:</p>
+        <ul class="moto-features">
+            <li>Financiamiento accesible.</li>
+            <li>Mantenimiento y reparaciones especializadas.</li>
+            <li>Accesorios y equipamiento para motociclistas.</li>
+        </ul>
+        <p>¡Visítanos y descubre la libertad de conducir una moto!</p>
+    </div>
+
+    <script>
+        function mostrarMas() {
+            const masInfo = document.getElementById('mas-info');
+            if (masInfo.style.display === 'none') {
+                masInfo.style.display = 'block';
+            } else {
+                masInfo.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

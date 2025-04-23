@@ -1,0 +1,114 @@
+/* Reset básico para eliminar estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Encabezados */
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+/* Secciones de información */
+.info-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Estilo para listas */
+ul {
+    padding-left: 20px;
+}
+
+.moto-features {
+    list-style-type: square;
+}
+
+/* Estilo para botones */
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: block;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Estilos para enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayar enlace al pasar el mouse */
+}
+
+/* Sección sobre la agencia */
+.agency-info {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Estilos para la sección de mostrar más */
+#mas-info {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+/* Diseño responsivo */
+@media (min-width: 768px) {
+    body {
+        padding: 40px;
+    }
+
+    .info-section {
+        max-width: 800px;
+        margin: 20px auto; /* Centrar la sección en pantallas más grandes */
+    }
+
+    button {
+        width: auto; /* Botón con tamaño automático en pantallas más grandes */
+    }
+}
+
+/* Estilo para el pie de página */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #555;
+}

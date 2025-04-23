@@ -1,0 +1,75 @@
+/* Estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.contact-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Títulos */
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Párrafos */
+p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Resaltado para los títulos de información */
+strong {
+    color: #0066cc;
+    font-weight: bold;
+}
+
+/* Estilo para los enlaces */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botón para volver a la página principal */
+.btn-volver {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 30px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-volver:hover {
+    background-color: #005bb5;
+}

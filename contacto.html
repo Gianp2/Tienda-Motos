@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .contacto-container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo del cuadro modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1000;
+            text-align: left;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            margin: 10px 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contacto-container">
+        <button id="contacto-btn">Contacto</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="contacto-modal">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-header">Contacto</div>
+        <div class="modal-content">
+            <p><strong>Email:</strong> LasparejasGP@motos.com</p>
+            <p><strong>Teléfono:</strong> +54 9 3471417071</p>
+            <p><strong>Ubicación:</strong> Las Parejas</p>
+        </div>
+    </div>
+    <!-- Overlay -->
+    <div class="overlay" id="modal-overlay"></div>
+
+    <script>
+        const contactoBtn = document.getElementById('contacto-btn');
+        const modal = document.getElementById('contacto-modal');
+        const overlay = document.getElementById('modal-overlay');
+        const closeModal = document.getElementById('modal-close');
+
+        contactoBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

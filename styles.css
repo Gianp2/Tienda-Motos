@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.logo img {
+    width: 150px; 
+    height: auto; 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #181710;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    min-height: 88vh;
+    background: linear-gradient(
+        90deg,
+        rgba(47,28,42,1) 0%,
+        rgba(45,54,61,1) 50%,
+        rgb(19,41,65,1) 100%
+    );
+}
+
+/* Menú */
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 40px; 
+}
+
+.menu .navbar {
+    display: flex;
+    align-items: center;
+}
+
+.menu .navbar ul {
+    display: flex;
+    gap: 20px; 
+}
+
+.menu .navbar ul li {
+    position: relative;
+}
+
+.menu .navbar ul li a {
+    font-size: 17px;
+    padding: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    display: block;
+}
+
+.menu .navbar ul li a:hover {
+    color: #BA8250;
+}
+
+/* Carrito */
+.menu .navbar ul li .submenu {
+    position: relative;
+}
+
+.menu .navbar ul li .submenu #carrito {
+    display: none;
+}
+
+.submenu:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+    backdrop-filter: blur(10px);
+    top: 100%;
+    z-index: 1;
+    background-color: #4e4b5076;
+    padding: 20px;
+    min-width: 450px; 
+    margin-right: 40px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+}
+
+/* Botón Vaciar Carrito */
+#carrito .vaciar-btn {
+    background-color: #BA8250;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+#menu {
+    display: none;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+.header-txt {
+    text-align: center;
+}
+
+.header-txt h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 100px;
+    color: #959a9c;
+}
+
+.header-txt p {
+    font-size: 16px;
+    color: #b0a4b6;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+}
+
+.header-txt img {
+    width: 700px;
+    display: block;
+}
+
+.btn-1, .btn-2 {
+    display: inline-block;
+    padding: 13px 25px;
+    background-color: #BA8250;
+    color: #eee5f3;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    margin-top: 55px;
+}
+
+.btn-2 {
+    margin: 0;
+    padding: 8px 35px;
+}
+
+.about {
+    padding: 120px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-img {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.about-img img {
+    width: 350px;
+}
+
+.about-txt {
+    flex-basis: 50%;
+}
+
+h2 {
+    color: #dfdde0;
+    font-size: 80px;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #dfdde0;
+}
+
+.products {
+    padding: 0 0 200px 0;
+    text-align: center;
+}
+
+.products h2 {
+    margin-bottom: 50px;
+}
+
+.products-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+}
+
+h3 {
+    color: #dfdde0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.precio {
+    color: #BA8250;
+    font-weight: 800;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.clock {
+    font-size: 24px; 
+    color: #ffffff; 
+    margin-top: 10px;
+    text-align: center; 
+}
+
+.footer {
+    border-top: 1px solid #ba815065;
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link h3 {
+    font-size: 22px;
+}
+
+.link a {
+    font-size: 16px;
+    color: #c0c0c1;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.link a:hover {
+    color: #BA8250;
+}
+
+@media (max-width: 991px) {
+    .menu {
+        padding: 20px;
+    }
+
+    .menu label {
+        display: initial;
+    }
+
+    .menu .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #18171d;
+        display: none;
+    }
+
+    .menu .navbar ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ .navbar {
+        display: initial;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .submenu:hover #carrito {
+        min-width: 100%;
+    }
+
+    .header {
+        min-width: 0vh;
+        padding: 100px 30px;
+    }
+
+    .header-txt {
+        text-align: center;
+    }
+
+    .header-txt h1 {
+        font-size: 90px;
+        line-height: 1;
+    }
+
+    .about {
+        padding: 30px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img {
+        order: 2;
+    }
+
+    .about-img img {
+        width: 250px;
+    }
+
+    .about-txt {
+        margin-bottom: 25px;
+    }
+
+    .products {
+        padding: 30px;
+    }
+
+    .products-content {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+
+    .footer {
+        padding: 30px;
+        flex-direction: column;
+        text-align: center;
+    }
+}
