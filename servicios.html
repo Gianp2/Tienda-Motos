@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Descubre los servicios de Motos GP: reparación especializada, repuestos originales, garantía extendida, personalización, mantenimiento preventivo, restauración de motos clásicas, accesorios premium y servicio de grúa.">
+    <meta name="keywords" content="motos, reparación de motos, repuestos de motos, personalización de motos, garantía, mantenimiento de motos, accesorios de motos, servicio de grúa, Motos GP">
+    <meta name="author" content="Motos GP">
+    <title>Servicios - Motos GP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background: linear-gradient(270deg, #dff9fb, #c7ecee, #dcdde1);
+            background-size: 600% 600%;
+            animation: fondoAnimado 20s ease infinite;
+        }
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .servicios {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .servicios h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #1e3a8a;
+        }
+        .servicios p {
+            font-size: 18px;
+            margin-bottom: 50px;
+            color: #444;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 35px;
+        }
+        .servicio {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .servicio:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        .servicio i {
+            font-size: 40px;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+        .servicio h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #0d6efd;
+        }
+        .servicio p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .servicio .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0d6efd;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .servicio .cta-button:hover {
+            background-color: #1e3a8a;
+            transform: translateY(-2px);
+        }
+        .back-button {
+            display: block;
+            margin: 40px auto 0;
+            padding: 12px 30px;
+            background-color: #0d6efd;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #1e3a8a;
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #1e3a8a;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        footer a {
+            color: #a5b4fc;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .servicios h2 {
+                font-size: 32px;
+            }
+            .servicios p {
+                font-size: 16px;
+            }
+            .servicio i {
+                font-size: 35px;
+            }
+            .servicio h3 {
+                font-size: 20px;
+            }
+            .servicio p {
+                font-size: 14px;
+            }
+            .back-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="servicios" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <p>En <strong>Motos GP</strong> ofrecemos una amplia gama de servicios para mantener tu moto en perfectas condiciones. Desde reparaciones especializadas hasta personalización y mantenimiento preventivo, nuestro equipo de expertos está aquí para ayudarte a rodar con confianza.</p>
+        <div class="servicios-grid">
+            <div class="servicio">
+                <i class="fas fa-motorcycle"></i>
+                <h3>Reparación Especializada</h3>
+                <p>Diagnósticos avanzados y reparaciones de alta calidad para motores, frenos, suspensión, sistemas eléctricos y más. Contamos con técnicos certificados y herramientas de última generación.</p>
+                <a href="contacto.html" class="cta-button">Solicitar Servicio</a>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-tools"></i>
+                <h3>Venta de Repuestos</h3>
+                <p>Amplio catálogo de repuestos originales y compatibles para todas las marcas y modelos. Te asesoramos para encontrar la pieza perfecta para tu moto.</p>
+                <a href="contacto.html" class="cta-button">Explorar Repuestos</a>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Garantía Extendida</h3>
+                <p>Ofrecemos garantía extendida en todos nuestros servicios y productos, brindándote la tranquilidad que necesitas para disfrutar de tu moto sin preocupaciones.</p>
+                <a href="contacto.html" class="cta-button">Conocer Más</a>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Personalización y Pintura</h3>
+                <p>Transforma tu moto con nuestros servicios de pintura personalizada, vinilos, aerografía y restauración estética. ¡Haz que tu moto sea única!</p>
+                <a href="contacto.html" class="cta-button">Personalizar Ahora</a>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-wrench"></i>
+                <h3>Mantenimiento Preventivo</h3>
+                <p>Programas de mantenimiento preventivo para mantener tu moto en óptimas condiciones. Incluye cambio de aceite, revisión de frenos, neumáticos y más.</p>
+                <a href="contacto.html" class="cta-button">Agendar Mantenimiento</a>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-history"></i>
+                <h3>Restauración de Motos Clásicas</h3>
+                <p>Especialistas en la restauración de motos clásicas y vintage, devolviéndoles su esplendor original con atención al detalle y piezas auténticas.</p>
+                <a href="contacto.html" class="cta-button">Restaurar Ahora</a>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-helmet-safety"></i>
+                <h3>Accesorios Premium</h3>
+                <p>Personaliza tu experiencia con nuestra selección de accesorios premium: cascos, guantes, alforjas y más, diseñados para estilo y seguridad.</p>
+                <a href="contacto.html" class="cta-button">Ver Accesorios</a>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-truck"></i>
+                <h3>Servicio de Grúa</h3>
+                <p>Asistencia en carretera 24/7 con nuestro servicio de grúa especializado para motos. Te llevamos a nuestro taller o a donde necesites.</p>
+                <a href="contacto.html" class="cta-button">Solicitar Grúa</a>
+            </div>
+        </div>
+        <button class="back-button" onclick="window.history.back()">Volver atrás</button>
+    </section>
+    <footer>
+        <p>© 2025 Motos GP. Todos los derechos reservados. <a href="politica-privacidad.html">Política de Privacidad</a> | <a href="terminos-condiciones.html">Términos y Condiciones</a></p>
+    </footer>
+</body>
+</html>

@@ -1,135 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f9;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto - Las Parejas GP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        .contacto-container {
-            text-align: center;
-        }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(270deg, #89f7fe, #66a6ff, #f8ceec, #a88beb);
+      background-size: 800% 800%;
+      animation: fondoAnimado 18s ease infinite;
+      overflow: auto;
+    }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    @keyframes fondoAnimado {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    .modal {
+      position: relative;
+      width: 90%;
+      max-width: 550px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: left;
+      color: #1a1a1a;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.5s ease;
+    }
 
-        /* Estilo del cuadro modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 400px;
-            background: white;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            z-index: 1000;
-            text-align: left;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
-        .modal.active {
-            display: block;
-        }
+    .modal-header {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }
 
-        .modal-header {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+    .modal-content {
+      font-size: 16px;
+      color: #333;
+    }
 
-        .modal-content p {
-            margin: 10px 0;
-        }
+    .modal-content p {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      line-height: 1.6;
+    }
 
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: transparent;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-        }
+    .modal-content p i {
+      color: #007bff;
+      font-size: 22px;
+      min-width: 25px;
+    }
 
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
+    .modal-content .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+    }
 
-        .overlay.active {
-            display: block;
-        }
-    </style>
+    .modal-content .social-links a {
+      color: #007bff;
+      font-size: 24px;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .modal-content .social-links a:hover {
+      color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #007bff;
+    }
+
+    .modal-back {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-back {
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(135deg, #0056b3, #003d80);
+      transform: translateY(-2px);
+    }
+
+    .map-container {
+      margin-top: 25px;
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 600px) {
+      .modal {
+        padding: 25px;
+        max-width: 95%;
+      }
+
+      .modal-header {
+        font-size: 26px;
+      }
+
+      .modal-content p {
+        font-size: 14px;
+      }
+
+      .btn-back {
+        padding: 10px 25px;
+        font-size: 14px;
+      }
+
+      .map-container {
+        height: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="contacto-container">
-        <button id="contacto-btn">Contacto</button>
+  <div class="modal" id="contacto-modal">
+    <button class="modal-close" id="modal-close">×</button>
+    <div class="modal-header">Contacto - Las Parejas GP</div>
+    <div class="modal-content">
+      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> LasparejasGP@motos.com</p>
+      <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> +54 9 3471 417071</p>
+      <p><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> Av. 21 1234, Las Parejas, Santa Fe, Argentina</p>
+      <p><i class="fas fa-clock"></i> <strong>Horario:</strong> Lunes a Viernes: 9:00 - 18:00 | Sábado: 9:00 - 13:00</p>
+      <p><i class="fas fa-info-circle"></i> <strong>Sobre Nosotros:</strong> Las Parejas GP es tu destino para motos de alta calidad y servicio excepcional.</p>
+      <div class="social-links">
+        <a href="https://facebook.com/lasparejasgp" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/lasparejasgp" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5493471417071" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.7881354589346!2d-61.80014798481909!3d-32.016141680924756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b9eab7f57f23f1%3A0x1c27e09af33429cf!2sLas%20Parejas%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1687782934235!5m2!1ses-419!2sar"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal" id="contacto-modal">
-        <button class="modal-close" id="modal-close">&times;</button>
-        <div class="modal-header">Contacto</div>
-        <div class="modal-content">
-            <p><strong>Email:</strong> LasparejasGP@motos.com</p>
-            <p><strong>Teléfono:</strong> +54 9 3471417071</p>
-            <p><strong>Ubicación:</strong> Las Parejas</p>
-        </div>
+    <div class="modal-back">
+      <button class="btn-back" id="btn-volver">⬅ Volver</button>
     </div>
-    <!-- Overlay -->
-    <div class="overlay" id="modal-overlay"></div>
+  </div>
 
-    <script>
-        const contactoBtn = document.getElementById('contacto-btn');
-        const modal = document.getElementById('contacto-modal');
-        const overlay = document.getElementById('modal-overlay');
-        const closeModal = document.getElementById('modal-close');
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    const modal = document.getElementById('contacto-modal');
+    const closeModal = document.getElementById('modal-close');
+    const volverBtn = document.getElementById('btn-volver');
 
-        contactoBtn.addEventListener('click', () => {
-            modal.classList.add('active');
-            overlay.classList.add('active');
-        });
+    const closeModalHandler = () => {
+      window.history.back();
+    };
 
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('active');
-            overlay.classList.remove('active');
-        });
+    closeModal.addEventListener('click', closeModalHandler);
+    volverBtn.addEventListener('click', closeModalHandler);
 
-        overlay.addEventListener('click', () => {
-            modal.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-    </script>
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        closeModalHandler();
+      }
+    });
+  </script>
 </body>
 </html>

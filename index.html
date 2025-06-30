@@ -1,286 +1,454 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motos</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .carousel {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    overflow: hidden;
-    height: auto;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .carousel {
+      position: relative;
+      inline-size: 100%;
+      max-inline-size: 600px;
+      margin: auto;
+      overflow: hidden;
+      block-size: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
 
-.carousel-images img {
-    width: 100%; 
-    flex-shrink: 0; 
-    object-fit: cover;
-    max-height: 300px;
-    border-radius: 10px;
-}
+    .carousel-images img {
+      inline-size: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      max-block-size: 350px;
+      border-radius: 10px;
+    }
 
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
+    .carousel-button {
+      position: absolute;
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background-color 0.3s;
+      font-size: 18px;
+    }
 
-.carousel-button.left {
-    left: 10px;
-}
+    .carousel-button:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
 
-.carousel-button.right {
-    right: 10px;
-}
+    .carousel-button.left {
+      inset-inline-start: 10px;
+    }
 
-        .clock {
-            font-size: 24px;
-            color: #333;
-            margin-top: 10px;
-        }
-    </style>
+    .carousel-button.right {
+      inset-inline-end: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-dot.active {
+      background-color: #ffffff;
+    }
+
+    #contador-carrito {
+      background: red;
+      color: white;
+      font-size: 12px;
+      border-radius: 50%;
+      padding: 2px 6px;
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+    }
+
+    /* Toast Notification Styles */
+    #toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .carousel {
+        max-inline-size: 100%;
+      }
+
+      .carousel-images img {
+        max-block-size: 250px;
+      }
+
+      .carousel-button {
+        padding: 8px;
+        font-size: 16px;
+      }
+
+      .carousel-dot {
+        width: 8px;
+        height: 8px;
+      }
+
+      #carrito {
+        position: absolute;
+        inset-block-start: 100%;
+        inset-inline-end: 0;
+        inset-inline-start: 0;
+        inline-size: 100%;
+        margin-inline-end: 0;
+        background-color: rgba(78, 75, 80, 0.7);
+        padding: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+
+      .submenu:hover #carrito {
+        display: block;
+      }
+
+      .header-content .header-txt h1 {
+        font-size: 40px;
+      }
+
+      .header-content .header-txt p {
+        font-size: 14px;
+      }
+
+      .btn-1 {
+        margin-block-start: 30px;
+      }
+
+      .menu-icono {
+        inline-size: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <div class="menu container">
-            <a href="#" class="logo">Motos GP</a>
-
-            </label>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="index.php">Iniciar Sesión</a></li>
-                </ul>
-            </nav>
-            <div>
-                <ul>
-                    <li class="submenu">
-                        <br>
-                        <img src="images/car.svg" id="img-carrito" alt="carrito">
-                        <div id="carrito">
-                            <table id="lista-carrito">
-                                <thead>
-                                    <tr>
-                                        <th>Imagen</th>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                            <a href="#" class="btn-2" id="vaciar-carrito">Vaciar Carrito</a>
-                        </div>
-                    </li>
-                </ul>
+  <header class="header">
+    <div class="menu container">
+      <a href="#" class="logo">Motos GP</a>
+      <input type="checkbox" id="menu" />
+      <label for="menu">
+        <img src="images/menu.png" class="menu-icono" alt="Menú" />
+      </label>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="#">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="index.php">Iniciar Sesión</a></li>
+        </ul>
+      </nav>
+      <div>
+        <ul>
+          <li class="submenu" style="position: relative;">
+            <img src="images/car.svg" id="img-carrito" alt="carrito" />
+            <span id="contador-carrito">0</span>
+            <div id="carrito">
+              <table id="lista-carrito">
+                <thead>
+                  <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <a href="#" class="btn-2" id="vaciar-carrito">Vaciar Carrito</a>
             </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-content container">
+      <div class="header-txt">
+        <h1>Ofertas Especiales</h1>
+        <p>Estrena Las Mejores Motos</p>
+        <div class="carousel">
+          <div class="carousel-images" id="carousel-images">
+            <img src="images/moto1.png" alt="Moto 1" />
+            <img src="images/moto2.png" alt="Moto 2" />
+            <img src="images/moto3.png" alt="Moto 3" />
+            <img src="images/moto4.png" alt="Moto 4" />
+            <img src="images/moto5.png" alt="Moto 5" />
+          </div>
+          <button class="carousel-button left" onclick="prevSlide()">❮</button>
+          <button class="carousel-button right" onclick="nextSlide()">❯</button>
+          <div class="carousel-dots" id="carousel-dots"></div>
         </div>
+        <a href="informacion.html" class="btn-1">Información</a>
+        <div class="clock" id="reloj"></div>
+      </div>
+    </div>
+  </header>
 
-        <div class="header-content container">
-            <div class="header-txt">
-                <br><br><br><br>
-                <h1>Ofertas Especiales</h1>
-                <br>
-                <p>Estrena las mejores motos</p>
+  <section class="about container">
+    <div class="about-img">
+      <img src="images/motor.png" alt="Motor" />
+    </div>
+    <div class="about-txt">
+      <h2>Nosotros</h2>
+      <p>
+        En MotosGP, somos apasionados por las motos y todo lo relacionado con la adrenalina sobre dos ruedas.
+        Con más de 30 años en el mercado, nos hemos convertido en referentes en la venta de motocicletas de alta calidad.
+      </p>
+    </div>
+  </section>
 
-                <div class="carousel">
-                    <div class="carousel-images" id="carousel-images">
-                        <img src="images/moto1.png" alt="Moto 1"> 
-                        <img src="images/moto2.png" alt="Moto 2">
-                        <img src="images/moto3.png" alt="Moto 3">
-                        <img src="images/moto4.png" alt="Moto 4">
-                        <img src="images/moto5.png" alt="Moto 5">
-                    </div>
-                    <button class="carousel-button left" onclick="prevSlide()">&#10094;</button>
-                    <button class="carousel-button right" onclick="nextSlide()">&#10095;</button>
-                </div>
-                <a href="informacion.html" class="btn-1">Información</a>
-                <br>
-                <div class="clock" id="reloj"></div>
-            </div>
-        </div>
-    </header>
+  <main class="products container" id="lista-1">
+    <h2>Productos</h2>
+    <div class="producto" data-id="1" data-nombre="Motocicleta A" data-precio="20000" data-imagen="images/m1.png">
+      <img src="images/m1.png" alt="Moto A" />
+      <div class="product-txt">
+        <h3>Motocicleta A</h3>
+        <p>Calidad Premium</p>
+        <p class="precio">$20000</p>
+        <a href="#" class="agregar-carrito btn-2">Agregar</a>
+      </div>
+    </div>
+    <div class="producto" data-id="2" data-nombre="Motocicleta B" data-precio="20000" data-imagen="images/m2.png">
+      <img src="images/m2.png" alt="Moto B" />
+      <div class="product-txt">
+        <h3>Motocicleta B</h3>
+        <p>Calidad Premium</p>
+        <p class="precio">$20000</p>
+        <a href="#" class="agregar-carrito btn-2">Agregar</a>
+      </div>
+    </div>
+    <div class="producto" data-id="3" data-nombre="Motocicleta C" data-precio="20000" data-imagen="images/m3.png">
+      <img src="images/m3.png" alt="Moto C" />
+      <div class="product-txt">
+        <h3>Motocicleta C</h3>
+        <p>Calidad Premium</p>
+        <p class="precio">$20000</p>
+        <a href="#" class="agregar-carrito btn-2">Agregar</a>
+      </div>
+    </div>
+    <div class="producto" data-id="4" data-nombre="Motocicleta D" data-precio="20000" data-imagen="images/m4.png">
+      <img src="images/m4.png" alt="Moto D" />
+      <div class="product-txt">
+        <h3>Motocicleta D</h3>
+        <p>Calidad Premium</p>
+        <p class="precio">$20000</p>
+        <a href="#" class="agregar-carrito btn-2">Agregar</a>
+      </div>
+    </div>
+  </main>
 
-    <section class="about container">
-        <div class="about-img">
-            <img src="images/motor.png" alt="">
-        </div>
-        <div class="about-txt">
-            <h2>Nosotros</h2>
-            <p>
-                En MotosGP, somos apasionados por las motos y todo lo relacionado con la adrenalina sobre dos ruedas. Con más de 30 años en el mercado, nos hemos convertido en referentes en la venta de motocicletas de alta calidad, ofreciendo a nuestros clientes una experiencia única y personalizada.
-            </p>
-        </div>
-    </section>
+  <footer class="footer container">
+    <div class="link">
+      <h3>Servicios</h3>
+      <ul>
+        <li><a href="#">Reparación</a></li>
+        <li><a href="#">Venta de piezas</a></li>
+        <li><a href="#">Garantía</a></li>
+      </ul>
+    </div>
+    <div class="link">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="#">Email: LasparejasGP@motos.com</a></li>
+        <li><a href="#">Teléfono: +54 9 3471417071</a></li>
+        <li><a href="#">Ubicación: Las Parejas</a></li>
+      </ul>
+    </div>
+    <div class="link">
+      <h3>Síguenos</h3>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="link">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="#">Política de Privacidad</a></li>
+        <li><a href="#">Términos de Uso</a></li>
+      </ul>
+    </div>
+  </footer>
 
-    <main class="products container" id="lista-1">
-        <h2>Productos</h2>
+  <div id="toast"></div>
 
-        <div class="producto">
-            <img src="images/m1.png" alt="">
-            <div class="product-txt">
-                <h3>Motocicleta</h3>
-                <p>Calidad Premium</p>
-                <p class="precio">$20000</p> 
-                <a href="#" class="agregar-carrito btn-2" data-id="1">Agregar</a>
-            </div>
-        </div>
+  <script>
+    // Reloj
+    function actualizarReloj() {
+      const ahora = new Date();
+      const horas = String(ahora.getHours()).padStart(2, '0');
+      const minutos = String(ahora.getMinutes()).padStart(2, '0');
+      const segundos = String(ahora.getSeconds()).padStart(2, '0');
+      document.getElementById('reloj').innerText = `${horas}:${minutos}:${segundos}`;
+    }
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
 
-        <div class="producto">
-            <img src="images/m2.png" alt="">
-            <div class="product-txt">
-                <h3>Motocicleta</h3>
-                <p>Calidad Premium</p>
-                <p class="precio">$20000</p> 
-                <a href="#" class="agregar-carrito btn-2" data-id="2">Agregar</a>
-            </div>
-        </div>
+    // Carrusel
+    let currentSlide = 0;
+    let isPaused = false;
+    const slides = document.querySelectorAll('#carousel-images img');
+    const totalSlides = slides.length;
 
-        <div class="producto">
-            <img src="images/m3.png" alt="">
-            <div class="product-txt">
-                <h3>Motocicleta</h3>
-                <p>Calidad Premium</p>
-                <p class="precio">$20000</p> 
-                <a href="#" class="agregar-carrito btn-2" data-id="3">Agregar</a>
-            </div>
-        </div>
-
-        <div class="producto">
-            <img src="images/m4.png" alt="">
-            <div class="product-txt">
-                <h3>Motocicleta</h3>
-                <p>Calidad Premium</p>
-                <p class="precio">$20000</p> 
-                <a href="#" class="agregar-carrito btn-2" data-id="4">Agregar</a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer container">
-        <div class="link">
-            <h3>Servicios</h3>
-            <ul>
-                <li><a href="#">Reparación</a></li>
-                <li><a href="#">Venta de piezas</a></li>
-                <li><a href="#">Garantía</a></li>
-            </ul>
-        </div>
-    
-        <div class="link">
-            <h3>Contacto</h3>
-            <ul>
-                <li><a href="#">Email: LasparejasGP@motos.com</a></li>
-                <li><a href="#">Teléfono: +54 9 3471417071</a></li>
-                <li><a href="#">Ubicación: Las Parejas</a></li>
-            </ul>
-        </div>
-    
-        <div class="link">
-            <h3>Síguenos</h3>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-        </div>
-    
-        <div class="link">
-            <h3>Legal</h3>
-            <ul>
-                <li><a href="#">Política de Privacidad</a></li>
-                <li><a href="#">Términos de Uso</a></li>
-            </ul>
-        </div>
-    </footer>    
-    
-    <script src="script.js"></script>
-    <script>
-        // Reloj
-        function actualizarReloj() {
-            const ahora = new Date();
-            const horas = String(ahora.getHours()).padStart(2, '0');
-            const minutos = String(ahora.getMinutes()).padStart(2, '0');
-            const segundos = String(ahora.getSeconds()).padStart(2, '0');
-            const horaFormateada = `${horas}:${minutos}:${segundos}`;
-            document.getElementById('reloj').innerText = horaFormateada;
-        }
-
-        setInterval(actualizarReloj, 1000);
-        actualizarReloj(); 
-
-        let currentSlide = 0;
-        const carrito = []; 
-
-        function showSlide(index) {
-            const slides = document.querySelectorAll('#carousel-images img');
-            if (index >= slides.length) {
-                currentSlide = 0;
-            } else if (index < 0) {
-                currentSlide = slides.length - 1;
-            } else {
-                currentSlide = index;
-            }
-            const offset = -currentSlide * 100; 
-            document.getElementById('carousel-images').style.transform = `translateX(${offset}%)`;
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // Cambiar img 5 segundos
-        setInterval(nextSlide, 5000);
-
-        // Manejo del carrito
-        const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
-
-        document.querySelectorAll('.agregar-carrito').forEach(button => {
-            button.addEventListener('click', function (event) {
-                event.preventDefault();
-                const productId = this.getAttribute('data-id');
-                carrito.push(`Producto ${productId}`);
-                updateCarrito();
-            });
+    function createDots() {
+      const dotsContainer = document.getElementById('carousel-dots');
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          showSlide(i);
+          pauseAutoPlay();
         });
+        dotsContainer.appendChild(dot);
+      }
+    }
 
-        vaciarCarritoBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            carrito.length = 0; // Vaciar
-            updateCarrito();
-        });
+    function updateDots() {
+      const dots = document.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
 
-        function updateCarrito() {
-            const listaCarrito = document.querySelector('#lista-carrito tbody');
-            listaCarrito.innerHTML = ''; // Limpiar 
-            carrito.forEach(item => {
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${item}</td><td>Precio</td><td><button class="btn-2">Eliminar</button></td>`;
-                listaCarrito.appendChild(row);
-            });
-        }
-    </script>
+    function showSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      document.getElementById('carousel-images').style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateDots();
+    }
+
+    function nextSlide() {
+      if (!isPaused) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function pauseAutoPlay() {
+      isPaused = true;
+      setTimeout(() => {
+        isPaused = false;
+      }, 10000); // Resume after 10 seconds
+    }
+
+    // Initialize carousel
+    createDots();
+    let autoPlay = setInterval(nextSlide, 5000);
+
+    // Pause on hover
+    document.querySelector('.carousel').addEventListener('mouseenter', () => {
+      pauseAutoPlay();
+    });
+
+    // Toast Notification
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Carrito
+    let carrito = [];
+
+    function updateCarrito() {
+      const lista = document.querySelector('#lista-carrito tbody');
+      const contador = document.getElementById('contador-carrito');
+      lista.innerHTML = '';
+      carrito.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><img src="${item.imagen}" width="50" alt="${item.nombre}" /></td>
+          <td>${item.nombre}</td>
+          <td>$${item.precio}</td>
+          <td><button class="btn-2 eliminar" data-index="${index}">Eliminar</button></td>
+        `;
+        lista.appendChild(row);
+      });
+      contador.innerText = carrito.length;
+    }
+
+    document.querySelectorAll('.agregar-carrito').forEach(button => {
+      button.addEventListener('click', e => {
+        e.preventDefault();
+        const producto = button.closest('.producto');
+        const nuevoProducto = {
+          id: producto.dataset.id,
+          nombre: producto.dataset.nombre,
+          precio: producto.dataset.precio,
+          imagen: producto.dataset.imagen
+        };
+        carrito.push(nuevoProducto);
+        updateCarrito();
+        showToast(`${nuevoProducto.nombre} agregado al carrito`);
+      });
+    });
+
+    document.getElementById('vaciar-carrito').addEventListener('click', e => {
+      e.preventDefault();
+      carrito = [];
+      updateCarrito();
+      showToast('Carrito vaciado');
+    });
+
+    document.getElementById('lista-carrito').addEventListener('click', e => {
+      if (e.target.classList.contains('eliminar')) {
+        const index = e.target.dataset.index;
+        const removedItem = carrito[index];
+        carrito.splice(index, 1);
+        updateCarrito();
+        showToast(`${removedItem.nombre} eliminado del carrito`);
+      }
+    });
+  </script>
 </body>
 </html>
